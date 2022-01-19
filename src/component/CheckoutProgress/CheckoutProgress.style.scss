@@ -1,0 +1,82 @@
+.CheckoutProgress {
+  display: flex;
+  background: $default-secondary-base-color;
+  padding-bottom: 80px;
+  .ProgressBar:not(:first-child) {
+    margin-left: 55px;
+  }
+  .ProgressBar {
+    position: relative;
+    height: 5px;
+    background: $default-secondary-dark-color;
+    border-radius: 5px;
+    .FilledBar {
+      height: 100%;
+      background: $default-primary-base-color;
+      border-radius: 5px;
+      animation: fillBar 0.7s 1;
+    }
+    @keyframes fillBar {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+    .StepInfo {
+      position: absolute;
+      left: 100%;
+      bottom: 50%;
+      transform: translate(10px, 50%);
+      .Circle {
+        position: relative;
+        width: 35px;
+        height: 35px;
+        background: $default-secondary-dark-color;
+        border-radius: 50%;
+        transition: 0.7s;
+        &.filled {
+          background: $default-primary-base-color;
+        }
+        .Tick {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -75%) rotate(-45deg);
+          width: 15px;
+          height: 10px;
+          border-left: 2px solid $white;
+          border-bottom: 2px solid $white;
+        }
+        .StepNumber {
+          position: absolute;
+          top: 55%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: $black;
+          font-size: 16px;
+          font-weight: bold;
+          &.active {
+            color: $white;
+          }
+        }
+        .StepTitle {
+          position: absolute;
+          top: 100%;
+          right: 50%;
+          transform: translate(50%, 5px);
+          width: 150px;
+          color: $default-secondary-dark-color;
+          text-align: center;
+          font-size: 16px;
+          font-weight: bold;
+          transition: 0.7s;
+          &.active {
+            color: var(--black);
+          }
+        }
+      }
+    }
+  }
+}
